@@ -1,7 +1,8 @@
 import openpyxl
 from openpyxl.cell import get_column_letter
 from sys import argv
-Script, inputFile, outputFile = argv
+#Script, inputFile, outputFile = argv
+outputfile = inputfile, ".txt"
 def main():
     convert(inputFile)
 
