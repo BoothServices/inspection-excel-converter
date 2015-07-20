@@ -1,7 +1,7 @@
 import openpyxl
 from openpyxl.cell import get_column_letter
 from sys import argv
-Script, inputFile, outputFile = argv
+#Script, inputFile, outputFile = argv
 def main():
     convert(inputFile)
 
@@ -20,8 +20,8 @@ def grab_column(ws, column_number, areas):
     notes = [row[0].value for row in ws.iter_rows(cell_range)]
     return notes
 
-def convert(inputFile):
-    wb = openpyxl.load_workbook(filename=inputFile, read_only=True)
+def convert(inputfile):
+    wb = openpyxl.load_workbook(filename=inputfile, read_only=True)
     sheet = wb['Sheet1']
     ws = wb.active
 
@@ -35,7 +35,7 @@ def convert(inputFile):
         for area, note in zip(areas, area_notes):
             if note:
                 print("- {} {} {}".format(issue, area, note))
-                with open(outputFile, 'a') as f:
+                with open(outputfile, 'a') as f:
                     f.write("- {} {} {} \n".format(issue, area, note))
 
 
